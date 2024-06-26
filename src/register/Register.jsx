@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-const BASE_URL = "http://localhost:5000";
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -41,10 +41,7 @@ const Register = () => {
       return toast.error("Password Dosen't match");
     }
     try {
-      const register = await axios.post(
-        `${BASE_URL}/api/auth/register`,
-        inputData
-      );
+      const register = await axios.post(`https://backend-test-production-4e1e.up.railway.app/api/auth/register`,inputData);
       const data = register.data;
       if (data.success === false) {
         setLoading(false);

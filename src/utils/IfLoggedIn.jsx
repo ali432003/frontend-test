@@ -4,5 +4,5 @@ import { useAuth } from "../context/AuthContext";
 
 export const IfLoggedIn = () => {
   const { authUser } = useAuth();
-  return !authUser ? <Outlet /> : <Navigate to={"/"} />
-}
+  return !authUser ? <Outlet /> : <Navigate to={"/"} />;
+};

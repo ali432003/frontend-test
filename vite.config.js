@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: "http://localhost:5000",
+        target: "https://backend-test-production-4e1e.up.railway.app",
         secure: false
       }
     }

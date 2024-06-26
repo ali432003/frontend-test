@@ -14,7 +14,7 @@ export const SocketContextProvider = ({ children }) => {
   const { authUser } = useAuth();
   useEffect(() => {
     if (authUser) {
-      const socket = io("http://localhost:5000", {
+      const socket = io("https://backend-test-production-4e1e.up.railway.app", {
         query: {
           userId: authUser?._id,
         },

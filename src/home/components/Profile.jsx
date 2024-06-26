@@ -34,7 +34,7 @@ const Profile = () => {
       formData.append("userImg", Img); // 'image' should match the field name expected by your backend
 
       const res = await axios.put(
-        `/api/user/imageupload/${profData._id}`,
+        `https://backend-test-production-4e1e.up.railway.app/api/user/imageupload/${profData._id}`,
         formData,
         {
           headers: {

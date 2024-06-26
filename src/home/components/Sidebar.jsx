@@ -31,7 +31,9 @@ const Sidebar = ({ onSelectUser }) => {
     const chatUserHandler = async () => {
       setLoading(true);
       try {
-        const chatters = await axios.get(`/api/user/currentchatters`);
+        const chatters = await axios.get(
+          `https://backend-test-production-4e1e.up.railway.app/api/user/currentchatters`
+        );
         const data = chatters.data;
         if (data.success === false) {
           setLoading(false);
@@ -52,7 +54,9 @@ const Sidebar = ({ onSelectUser }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const search = await axios.get(`/api/user/search?search=${searchInput}`);
+      const search = await axios.get(
+        `https://backend-test-production-4e1e.up.railway.app/api/user/search?search=${searchInput}`
+      );
       const data = search.data;
       if (data.success === false) {
         setLoading(false);
@@ -96,7 +100,9 @@ const Sidebar = ({ onSelectUser }) => {
     if (confirmlogout === authUser.username) {
       setLoading(true);
       try {
-        const logout = await axios.post("/api/auth/logout");
+        const logout = await axios.post(
+          "https://backend-test-production-4e1e.up.railway.app/api/auth/logout"
+        );
         const data = logout.data;
         if (data?.success === false) {
           setLoading(false);
@@ -200,7 +206,9 @@ const Sidebar = ({ onSelectUser }) => {
                     <div key={user._id}>
                       <div
                         onClick={() => handelUserClick(user)}
-                        className={`flex gap-3 items-center rounded p-2 py-1 cursor-pointer ${selectedUserId === user?._id ? "bg-sky-500": "" } `}
+                        className={`flex gap-3 items-center rounded p-2 py-1 cursor-pointer ${
+                          selectedUserId === user?._id ? "bg-sky-500" : ""
+                        } `}
                       >
                         {/*Socket is Online*/}
                         <div
