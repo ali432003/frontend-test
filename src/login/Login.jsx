@@ -12,7 +12,6 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-
 const Login = () => {
   const navigate = useNavigate();
   const { setAuthUser } = useAuth();
@@ -32,7 +31,11 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const login = await axios.post(`https://backend-test-production-4e1e.up.railway.app/api/auth/login`, userInput);
+      const login = await axios.post(
+        `https://backend-test-production-4e1e.up.railway.app/api/auth/login`,
+        userInput,
+        { withCredentials: true }
+      );
       const data = login.data;
       if (data.success === false) {
         setLoading(false);
@@ -68,7 +71,7 @@ const Login = () => {
           <Input
             size="lg"
             placeholder="name@mail.com"
-            id='email'
+            id="email"
             type="email"
             required
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900 bg-white"
@@ -101,10 +104,7 @@ const Login = () => {
               className="flex items-center font-normal text-white"
             >
               I agree the
-              <a
-                
-                className="font-medium transition-colors hover:text-slate-500"
-              >
+              <a className="font-medium transition-colors hover:text-slate-500">
                 &nbsp;Terms and Conditions
               </a>
             </Typography>
@@ -114,9 +114,12 @@ const Login = () => {
         <Button className="mt-6" fullWidth type="submit">
           {loading ? "loading.." : "Login"}
         </Button>
-        <Typography color="gray" className="mt-4 text-center font-normal text-white">
+        <Typography
+          color="gray"
+          className="mt-4 text-center font-normal text-white"
+        >
           Dont have an account?{" "}
-          <Link to={'/register'} className="font-medium text-gray-900">
+          <Link to={"/register"} className="font-medium text-gray-900">
             Register
           </Link>
         </Typography>
