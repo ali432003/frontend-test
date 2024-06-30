@@ -49,8 +49,8 @@ const Register = () => {
         console.log(data.message);
       }
       toast.success(data?.message);
-      localStorage.setItem("chatapp", JSON.stringify(data));
-      setAuthUser(data);
+      // localStorage.setItem("chatapp", JSON.stringify(data));
+      // setAuthUser(data);
       setLoading(false);
       navigate("/login");
     } catch (error) {
