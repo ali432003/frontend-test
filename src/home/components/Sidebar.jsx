@@ -32,7 +32,8 @@ const Sidebar = ({ onSelectUser }) => {
       setLoading(true);
       try {
         const chatters = await axios.get(
-          `https://backend-test-production-4e1e.up.railway.app/api/user/currentchatters`
+          `https://backend-test-production-4e1e.up.railway.app/api/user/currentchatters`,
+          { withCredentials: true }
         );
         const data = chatters.data;
         if (data.success === false) {
