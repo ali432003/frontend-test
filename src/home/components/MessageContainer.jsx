@@ -45,7 +45,7 @@ const MessageContainer = ({ onBackUser }) => {
       setLoading(true);
       try {
         if (selectedConversation === null) return "Waitting for id";
-        const msg = await axios.get(`https://backend-test-production-4e1e.up.railway.app/api/message/${id}`);
+        const msg = await axios.get(`https://backend-test-production-4e1e.up.railway.app/message/${id}`);
         const data = await msg.data;
         if (data.success === false) {
           setLoading(false);
@@ -67,7 +67,7 @@ const MessageContainer = ({ onBackUser }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const sendMsg = await axios.post(`https://backend-test-production-4e1e.up.railway.app/api/message/send/${id}`, {
+      const sendMsg = await axios.post(`https://backend-test-production-4e1e.up.railway.app/message/send/${id}`, {
         messages: sendData,
       });
       const data = sendMsg.data;

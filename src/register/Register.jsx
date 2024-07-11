@@ -41,7 +41,7 @@ const Register = () => {
       return toast.error("Password Dosen't match");
     }
     try {
-      const register = await axios.post(`https://backend-test-production-4e1e.up.railway.app/api/auth/register`,inputData);
+      const register = await axios.post(`https://backend-test-production-4e1e.up.railway.app/auth/register`,inputData);
       const data = register.data;
       if (data.success === false) {
         setLoading(false);

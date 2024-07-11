@@ -32,7 +32,7 @@ const Login = () => {
     setLoading(true);
     try {
       const login = await axios.post(
-        `https://backend-test-production-4e1e.up.railway.app/api/auth/login`,
+        `https://backend-test-production-4e1e.up.railway.app/auth/login`,
         userInput,
         { withCredentials: true }
       );

@@ -32,7 +32,7 @@ const Sidebar = ({ onSelectUser }) => {
       setLoading(true);
       try {
         const chatters = await axios.get(
-          `https://backend-test-production-4e1e.up.railway.app/api/user/currentchatters`,
+          `https://backend-test-production-4e1e.up.railway.app/user/currentchatters`,
           { withCredentials: true }
         );
         const data = chatters.data;
@@ -56,7 +56,7 @@ const Sidebar = ({ onSelectUser }) => {
     setLoading(true);
     try {
       const search = await axios.get(
-        `https://backend-test-production-4e1e.up.railway.app/api/user/search?search=${searchInput}`
+        `https://backend-test-production-4e1e.up.railway.app/user/search?search=${searchInput}`
       );
       const data = search.data;
       if (data.success === false) {
@@ -102,7 +102,7 @@ const Sidebar = ({ onSelectUser }) => {
       setLoading(true);
       try {
         const logout = await axios.post(
-          "https://backend-test-production-4e1e.up.railway.app/api/auth/logout"
+          "https://backend-test-production-4e1e.up.railway.app/auth/logout"
         );
         const data = logout.data;
         if (data?.success === false) {
